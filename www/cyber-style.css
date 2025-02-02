@@ -325,7 +325,7 @@ aside{
     
     /*Longueur et largeur*/
     width: 14vw;
-    min-height: 30vh;
+    min-height: 40vh;
     
     /*Aligner les éléments (enfants)*/
     justify-content: center;
@@ -350,5 +350,5 @@ aside{
     border-radius: 10px;
     
     /*Couleur de fond*/
-    background-color: white;
+    background-color: rgb(255, 255, 255);
 }

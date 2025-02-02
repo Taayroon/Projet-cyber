@@ -38,32 +38,44 @@
     </main>
 
     <script>
-        function addNotification(color, text) {
+        // Fonction Notification
+        function addNotification(color, text, text_color) {
+            
             var div = document.createElement("div");
             div.classList.add("notifbut");
             div.style.backgroundColor = color;
             div.textContent = text;
+            div.style.color = text_color;
+            
 
+            // Ajouter la notification à la fin de notififbox
             var parentdiv = document.getElementById("notifbox");
             parentdiv.appendChild(div);
+
+            //Teint le passif de la couleur de la carte appuiée
+            var passif = document.getElementById("passifbox");
+            passif.style.backgroundColor = color
 
             // Récupérer toutes les notifications sauf le titre
             var notifications = Array.from(parentdiv.children).filter(child => child.id !== "notiftitle");
 
-            // Supprimer la plus ancienne si plus de 5 notifications sont présentes
+            // Supprimer la plus ancienne si plus de 3 notifications sont présentes
             if (notifications.length > 3) {
                 parentdiv.removeChild(notifications[0]); // Supprime la première notification ajoutée
             }
         }
 
         document.getElementById("cardatt").addEventListener("click", function () {
-            addNotification("red", "Rouge");
+            addNotification("#AF0000", "Attaque", "white"  );
         });
 
         document.getElementById("carddef").addEventListener("click", function () {
-            addNotification("blue", "Bleu");
+            addNotification("#07006C", "Défence", "white" );
         });
 
+        document.getElementById("cardpassif").addEventListener("click", function () {
+            addNotification("#DADADA", "Passif", "black" );
+        });
     </script>
     
     <aside>
