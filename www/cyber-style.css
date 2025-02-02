@@ -183,35 +183,39 @@ aside{
 .notif{
     display: flex;
     
+    /*Aligner les éléments (enfants)*/
     justify-content: center;
     align-items: center;
     
     /*Marges*/
-    margin-bottom: 10%;
     margin-top: 10%;
     
     /*Longueur et largeur*/
     width: 18vw;
-    min-height: 30vh;
+    height: 40vh;
     
     /*Bordures*/
     border-radius: 3vh;
     
-
-
 }
 #notifbox{
-    margin: auto;
+    position: relative;
+    padding-top: 7.5vh;
     display: flex;
     flex-wrap: wrap;
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+    /*Aligner les éléments (enfants)*/
     justify-content: space-between;
     
     /*Marges*/
-    margin-bottom: 50px;
+    margin: auto;
     
     /*Longueur et largeur*/
-    width: 99%;
-    min-height: 99%;
+    width: 30vw;
+    height: 40vh;
+    max-height: 40vh;
     
     /*Bordures*/
     border-radius: 3vh;
@@ -224,7 +228,8 @@ aside{
     flex-wrap: wrap;
     flex-direction: column;
     
-
+    
+    /*Aligner les éléments (enfants)*/
     justify-content: center;
     align-items: center;
 
@@ -251,6 +256,8 @@ aside{
 
 #notiftitle{
     display: flex;
+    position: absolute;
+    top: 0;
 
     /*Longueur et largeur*/
     width: 100%;
