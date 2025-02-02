@@ -38,31 +38,32 @@
     </main>
 
     <script>
+        function addNotification(color, text) {
+            var div = document.createElement("div");
+            div.classList.add("notifbut");
+            div.style.backgroundColor = color;
+            div.textContent = text;
 
-        document.getElementById("cardatt").addEventListener("click", function(){
-                document.getElementById("notifdef").style.display="none";
+            var parentdiv = document.getElementById("notifbox");
+            parentdiv.appendChild(div);
 
-                var div = document.createElement("div")
-                div.classList.add("notifbut")
-                div.style.backgroundColor="red"
-                div.textContent = "Rouge"
-                var parentdiv = document.getElementById("notifbox")
-                parentdiv.appendChild(div) 
+            // Récupérer toutes les notifications sauf le titre
+            var notifications = Array.from(parentdiv.children).filter(child => child.id !== "notiftitle");
+
+            // Supprimer la plus ancienne si plus de 5 notifications sont présentes
+            if (notifications.length > 3) {
+                parentdiv.removeChild(notifications[0]); // Supprime la première notification ajoutée
+            }
+        }
+
+        document.getElementById("cardatt").addEventListener("click", function () {
+            addNotification("red", "Rouge");
         });
-        document.getElementById("carddef").addEventListener("click", function(){
-                document.getElementById("notifdef").style.display="none";
 
-                var div = document.createElement("div")
-                div.classList.add("notifbut")
-                div.style.backgroundColor="blue"
-                div.textContent = "Bleu"
-                var parentdiv = document.getElementById("notifbox")
-                parentdiv.appendChild(div) 
+        document.getElementById("carddef").addEventListener("click", function () {
+            addNotification("blue", "Bleu");
         });
-        
-        document.getElementById("carddef").addEventListener("click", function(){
-            div.remove()
-        });        
+
     </script>
     
     <aside>
