@@ -40,7 +40,6 @@
     <script>
         // Fonction Notification
         function addNotification(color, text, text_color) {
-            
             var div = document.createElement("div");
             div.classList.add("notifbut");
             div.style.backgroundColor = color;
@@ -63,8 +62,16 @@
             if (notifications.length > 3) {
                 parentdiv.removeChild(notifications[0]); // Supprime la première notification ajoutée
             }
-        }
 
+            // Fonction pour supprimer la notification la plus récente après 10 secondes
+            setTimeout(function() {
+                if (notifications.length > 0) {
+                    parentdiv.removeChild(notifications[notifications.length - 1]);
+                }
+            }, 5000);
+
+        }
+        
         document.getElementById("cardatt").addEventListener("click", function () {
             addNotification("#AF0000", "Attaque", "white"  );
         });
